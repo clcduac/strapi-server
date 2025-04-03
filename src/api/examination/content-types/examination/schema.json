@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "examinations",
+  "info": {
+    "singularName": "examination",
+    "pluralName": "examinations",
+    "displayName": "Examination"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Published_Date": {
+      "type": "date"
+    },
+    "Examination_pdf": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

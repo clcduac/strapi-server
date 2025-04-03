@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lectures_webinars",
+  "info": {
+    "singularName": "lectures-webinar",
+    "pluralName": "lectures-webinars",
+    "displayName": "Lectures/Webinars"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Published_Date": {
+      "type": "date"
+    },
+    "Lectures": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
