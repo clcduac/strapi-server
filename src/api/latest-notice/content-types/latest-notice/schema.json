@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "latest_notices",
+  "info": {
+    "singularName": "latest-notice",
+    "pluralName": "latest-notices",
+    "displayName": "Latest-Notice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Notice": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

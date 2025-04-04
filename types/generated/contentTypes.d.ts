@@ -431,6 +431,36 @@ export interface ApiExaminationExamination extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLatestNoticeLatestNotice
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'latest_notices';
+  info: {
+    displayName: 'Latest-Notice';
+    pluralName: 'latest-notices';
+    singularName: 'latest-notice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::latest-notice.latest-notice'
+    > &
+      Schema.Attribute.Private;
+    Notice: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLecturesWebinarLecturesWebinar
   extends Struct.CollectionTypeSchema {
   collectionName: 'lectures_webinars';
@@ -973,6 +1003,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::examination.examination': ApiExaminationExamination;
+      'api::latest-notice.latest-notice': ApiLatestNoticeLatestNotice;
       'api::lectures-webinar.lectures-webinar': ApiLecturesWebinarLecturesWebinar;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
